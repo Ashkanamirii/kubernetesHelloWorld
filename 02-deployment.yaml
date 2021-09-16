@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firstkubernetes-deployment
+  namespace: hellokubernetes
+  labels:
+    app: firstkubernetes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: firstkubernetes
+  template:
+    metadata:
+      labels:
+        app: firstkubernetes
+    spec:
+      containers:
+        - name: firstkubernetes
+          image: ashkanamiri91/demokubernetes:latest
+          imagePullPolicy: IfNotPresent
